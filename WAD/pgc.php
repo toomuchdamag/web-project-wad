@@ -1,3 +1,12 @@
+<?php
+require 'DConnect.php';
+
+// Fetch courses from the database
+$sql = "SELECT PGPName, link, image FROM pgprogrammedata";
+$stmt = $pdo->query($sql);
+$courses = $stmt->fetchAll(PDO::FETCH_ASSOC);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -11,44 +20,6 @@
 		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 		<!-- font-awesome.min.css linking here -->
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
-		<style>
-			.course-col {
-				position: relative; 
-				color: white; 
-				padding: 20px; 
-				background-size: cover; 
-				background-position: center; 
-				border-radius: 10px; 
-				margin: 10px; 
-				text-align: center; /* Center text */
-			}
-			.course-col::before {
-            content: ""; 
-            position: absolute; 
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, 0.5); /* Black with 50% opacity */
-            z-index: 1;
-        }
-
-        .course-col h3 {
-            color: white; /* Set text color to white */
-            position: relative; 
-            z-index: 2; /* Ensure text is above the overlay */
-        }
-			.foundation {
-				background-image: url('images/foundation.jpg');
-			}
-			.undergraduate {
-				background-image: url('images/undergraduate.avif');
-			}
-			.postgraduate {
-				background-image: url('images/postgraduate.jpg');
-			}
-		</style>
 	</head>
 	<body>
 		<!-- header section strt -->
@@ -71,30 +42,33 @@
 						<li>
 							<a href="Apply.html">APPLY</a>
 						</li>
+						<li>
+							<a href="Contact.html">CONTACT</a>
+						</li>
 					</ul>
 				</div>
 				<i class="fa fa-bars" onclick="showMenu()"></i>
 			</nav>
 			<!-- nav end -->
-			<h1>Our Courses</h1>
+			<h1>Postgradute Courses</h1>
 		</section>
 		<!-- header section end -->
-
-		<!-- Course content strt -->
-		<section class="course">
-			<h1>Courses We Offer</h1>
-			<p>Dive into our extensive selection of courses designed to equip you with the knowledge and skills you need for success!</p>
-			<div class="row">
-				<a href="fc.html" class="course-col foundation"> <!-- Make the entire column clickable -->
-					<h3>Foundation Courses</h3>
-				</a>
-				<a href="udc.php" class="course-col undergraduate"> <!-- Make the entire column clickable -->
-					<h3>Undergraduate Courses</h3>
-				</a>
-				<a href="pgc.php" class="course-col postgraduate"> <!-- Make the entire column clickable -->
-					<h3>Post-Graduation Courses</h3>
-				</a>
-			</div>
+		<!-- about us content strt -->
+		<div class="course-container">
+        <?php
+        // Loop through all the courses and display them dynamically
+        if ($courses) {
+            foreach ($courses as $course) {
+                echo '<a href="' . $course['link'] . '" class="course-item">';
+                echo '<img src="images/' . $course['image'] . '" alt="' . htmlspecialchars($course['PGPName']) . '" class="course-image">';
+                echo '<h3 class="course-title">' . htmlspecialchars($course['PGPName']) . '</h3>';
+                echo '</a>';
+            }
+        } else {
+            echo '<p>No courses available.</p>';
+        }
+        ?>
+		</div>
 		</section>
 		
 		<!-- footer strt -->

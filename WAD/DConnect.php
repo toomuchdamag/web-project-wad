@@ -1,5 +1,5 @@
 <?php
-$host = "localhost"; // Change this if needed
+$host = "localhost"; // 
 $dbname = "studentdata"; // Your actual database name
 $username = "root"; // Your MySQL username
 $password = "";

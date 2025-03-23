@@ -11,22 +11,16 @@ function is_input_empty(string $username, string $pwd)
     }
 }
 
-function is_usernam_wrong(bool|array $result)
+function is_username_wrong($result)
 {
-    if(!$result){
-        return true;
-    } else {
-        return false;
-    }
+    return !$result;  // Returns true if $result is falsy (e.g., null, false, or an empty array)
 }
 
-function is_password_wrong(string $pdo, string $hashedPwd)
+
+function is_password_wrong(string $pwd, string $hashedPwd)
 {
-    if(!password_verify($pwd, $hashedPwd)){
-        return true;
-    } else {
-        return false;
-    }
+    return !password_verify($pwd, $hashedPwd);  // Returns true if password is incorrect
 }
+
     
    

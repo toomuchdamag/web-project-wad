@@ -11,51 +11,13 @@
 		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 		<!-- font-awesome.min.css linking here -->
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
-		<style>
-			.course-col {
-				position: relative; 
-				color: white; 
-				padding: 20px; 
-				background-size: cover; 
-				background-position: center; 
-				border-radius: 10px; 
-				margin: 10px; 
-				text-align: center; /* Center text */
-			}
-			.course-col::before {
-            content: ""; 
-            position: absolute; 
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, 0.5); /* Black with 50% opacity */
-            z-index: 1;
-        }
-
-        .course-col h3 {
-            color: white; /* Set text color to white */
-            position: relative; 
-            z-index: 2; /* Ensure text is above the overlay */
-        }
-			.foundation {
-				background-image: url('images/foundation.jpg');
-			}
-			.undergraduate {
-				background-image: url('images/undergraduate.avif');
-			}
-			.postgraduate {
-				background-image: url('images/postgraduate.jpg');
-			}
-		</style>
 	</head>
 	<body>
 		<!-- header section strt -->
 		<section class="sub-header">
 			<!-- nav strt -->
 			<nav>
-				<a href="index.html"><img class="logo-img" src="images/logo.png" alt="University Logo"></a>
+				<a href="index.html"><img src="images/logo.png" alt=""></a>
 				<div class="nav-links" id="navLinks">
 					<i class="fa fa-times" onclick="hideMenu()"></i>
 					<ul>
@@ -76,26 +38,51 @@
 				<i class="fa fa-bars" onclick="showMenu()"></i>
 			</nav>
 			<!-- nav end -->
-			<h1>Our Courses</h1>
+			<h1>Apply For DMU Dubai</h1>
 		</section>
 		<!-- header section end -->
 
-		<!-- Course content strt -->
-		<section class="course">
-			<h1>Courses We Offer</h1>
-			<p>Dive into our extensive selection of courses designed to equip you with the knowledge and skills you need for success!</p>
+		<!-- Contact us content strt -->
+		<section class="location">
+			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3613.1195408503845!2d55.16145761090256!3d25.09781447768248!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f632ec566d667%3A0xa139528a6de50e76!2sDe%20Montfort%20University%20Dubai!5e0!3m2!1sen!2sae!4v1742489484211!5m2!1sen!2sae" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+		</section>
+		<section class="contact-us">
 			<div class="row">
-				<a href="fc.html" class="course-col foundation"> <!-- Make the entire column clickable -->
-					<h3>Foundation Courses</h3>
-				</a>
-				<a href="udc.php" class="course-col undergraduate"> <!-- Make the entire column clickable -->
-					<h3>Undergraduate Courses</h3>
-				</a>
-				<a href="pgc.php" class="course-col postgraduate"> <!-- Make the entire column clickable -->
-					<h3>Post-Graduation Courses</h3>
-				</a>
+				<div class="contact-col">
+					<div>
+						<i class="fa fa-home"></i>
+						<span>
+							<h5>De Mountfort University </h5>
+							<p>Dubai Internet City, Dubai, UAE</p>
+						</span>
+					</div>
+					<div>
+						<i class="fa fa-phone"></i>
+						<span>
+							<h5>+4420123456789</h5>
+							<p>Monday to Saturday, 10AM tO 6PM</p>
+						</span>
+					</div>
+					<div>
+						<i class="fa fa-envelope-o"></i>
+						<span>
+							<h5>DMUDubai@gmail.com</h5>
+							<p>Email us your query</p>
+						</span>
+					</div>
+				</div>
+				<div class="contact-col">
+					<form action="form handeler.php" method="post">
+						<input type="text" name="name" placeholder="Enter Your Name" required > 
+						<input type="email" name="email" placeholder="Enter Email Address" required >
+						<input type="text" name="subject" placeholder="Enter Your Subject" required >
+						<textarea rows="8" name="message" placeholder="Message" ></textarea required >
+						<button type="Submit" class="hero-btn red-btn">Send Message</button required >
+					</form>
+				</div>
 			</div>
 		</section>
+		
 		
 		<!-- footer strt -->
 		<section class="footer">

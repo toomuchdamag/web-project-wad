@@ -2,7 +2,7 @@
 
 declare(strict_types=1);    
 
-function get_username(object $pdo,string $username)
+function get_user(object $pdo,string $username)
 {
     $query = "SELECT * FROM admins WHERE username = :username";
     $stmt = $pdo->prepare($query);
